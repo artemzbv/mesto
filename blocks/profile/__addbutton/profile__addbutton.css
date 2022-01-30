@@ -1,8 +1,5 @@
 .profile__addbutton {
-  padding: 0;
-  border: none;
   font: inherit;
-  color: inherit;
   background-color: transparent;
   cursor: pointer;
   width: 150px;
@@ -19,7 +16,6 @@
   .profile__addbutton {
     width: 282px;
     margin: 0;
-    padding: 0 auto;
     justify-content: center;
     align-items: center;
     padding: 17px 133px;
