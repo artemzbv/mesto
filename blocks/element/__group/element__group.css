@@ -12,11 +12,6 @@
   opacity: 0.5;
 }
 
-.element__group:visited {
-  background-color: black;
-}
-
 .element__group:active {
-  background-color: black;
   background-image: url(../../../images/Union.png);
 }
