@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Место</title>
+  </head>
+  <body class="body">
+    <div class=page>
+    <header>
+      <img class="header__logo" src="./images/header-logo.svg" alt="Место" />
+    </header>
+    <main>
+      <section class="profile">
+        <img
+          class="profile__avatar"
+          src="./images/profile-avatar.jpg"
+          alt="Кусто"
+        />
+        <div class="profile__info">
+          <div class="profile__headline">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="profile__editbutton">
+            <img
+              src="./images/profile-editbutton.svg"
+              alt="Редактировать"
+            />
+          </button>
+          </div>
+          <h2 class="profile__subtitle">Исследователь океана</h2>
+        </div>
+        <button class="profile__addbutton">
+          <img
+            class="profile__addbutton-vector"
+            src="./images/profile-addbutton.png"
+            alt="Добавить"
+          />
+        </button>
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img
+            class="element__mask-group"
+            src="./images/element-1.jpg"
+            alt="Карачаевск"
+          />
+          <div class="element__text">
+            <h2 class="element__title">Карачаевск</h2>
+            <button class= element__group>
+              <img class="element__vector"
+              src="./images/group.svg"
+              alt="Нравится"
+            />
+          </button>
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__mask-group"
+            src="./images/element-2.png"
+            alt="Гора Эльбрус"
+          />
+          <div class="element__text">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class= element__group>
+              <img class="element__vector"
+              src="./images/group.svg"
+              alt="Нравится"
+            />
+          </button>
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__mask-group"
+            src="./images/element-3.png"
+            alt="Домбай"
+          />
+          <div class="element__text">
+            <h2 class="element__title">Домбай</h2>
+            <button class= element__group>
+              <img class="element__vector"
+              src="./images/group.svg"
+              alt="Нравится"
+            />
+          </button>
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__mask-group"
+            src="./images/element-4.png"
+            alt="Гора Эльбрус"
+          />
+          <div class="element__text">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button class= element__group>
+              <img class="element__vector"
+              src="./images/group.svg"
+              alt="Нравится"
+            />
+          </button>
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__mask-group"
+            src="./images/element-5.png"
+            alt="Домбай"
+          />
+          <div class="element__text">
+            <h2 class="element__title">Домбай</h2>
+            <button class= element__group>
+              <img class="element__vector"
+              src="./images/group.svg"
+              alt="Нравится"
+            />
+          </button>
+          </div>
+        </div>
+
+        <div class="element">
+          <img
+            class="element__mask-group"
+            src="./images/element-6.png"
+            alt="Карачаево-Ч.."
+          />
+          <div class="element__text">
+            <h2 class="element__title">Карачаево-Черкесия</h2>
+            <button class= element__group>
+              <img class="element__vector"
+              src="./images/group.svg"
+              alt="Нравится"
+            />
+          </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__text">© 2020 Mesto Russia</p>
+    </div>
+    </footer>
+    </div>
+    <div class="popup">
+      <section class="popup__container">
+        <button class="popup__close-button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" value="Жак-Ив Кусто" class= "popup__nameinput">
+        <div class="popup__line"></div>
+        <input type="text" value="Исследователь океана" class="popup__jobinput">
+        <div class="popup__line"></div>
+        <button class="popup__submit-button"><h3 class="popup__submit-text ">Сохранить</h3></button>
+      </section>
+    <script src="index.js"></script>
+  </body>
+</html>

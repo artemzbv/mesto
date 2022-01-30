@@ -1,0 +1,22 @@
+.element__group {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: 22px;
+  height: 19px;
+  color: black;
+}
+.element__group:hover {
+  opacity: 0.5;
+}
+
+.element__group:visited {
+  background-color: black;
+}
+
+.element__group:active {
+  background-color: black;
+  background-image: url(../../../images/Union.png);
+}
