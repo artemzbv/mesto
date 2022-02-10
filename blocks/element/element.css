@@ -1,0 +1,9 @@
+.element {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 282px;
+  height: 361px;
+  background: #ffffff;
+  border-radius: 10px;
+}
