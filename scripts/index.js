@@ -5,8 +5,8 @@ const addButton = document.querySelector('.profile__editbutton');
 
 //Переменные формы попапа//
 const formElement = document.querySelector('.popup__form');
-const nameInput = formElement.querySelector('.popup_in_name');
-const jobInput = formElement.querySelector('.popup_in_job');
+const nameInput = formElement.querySelector('.popup__input_profile-name');
+const jobInput = formElement.querySelector('.popup__input_profile-job');
 
 //Переменные профиля//
 const inputValueName = document.querySelector('.profile__title');
