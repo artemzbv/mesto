@@ -1,0 +1,53 @@
+.popupimg__close-button {
+  position: relative;
+  right: -240px;
+  top: -8px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: white;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.popupimg__close-button:before {
+  position: absolute;
+  content: " ";
+  height: 35px;
+  border: 2px solid white;
+  color: white;
+  top: 0;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+
+.popupimg__close-button:after {
+  position: absolute;
+  content: " ";
+  height: 35px;
+  border: 2px solid white;
+  color: white;
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.popupimg__close-button:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 800px) {
+  .popupimg__close-button {
+    right: -110px;
+    width: 20px;
+    height: 20px;
+  }
+  .popupimg__close-button:before {
+    height: 20px;
+    border: 2px solid white;
+  }
+  .popupimg__close-button:after {
+    height: 20px;
+    border: 2px solid white;
+  }
+}
