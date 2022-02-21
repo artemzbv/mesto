@@ -11,4 +11,4 @@
 
 - [Ссылка на макет в Figma 2](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=50160%3A172)
 
-- [Ссылки на страницу](https://artemzbv.github.io/mesto/)
+- [Ссылка на страницу](https://artemzbv.github.io/mesto/)
