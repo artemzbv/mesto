@@ -98,7 +98,7 @@ function deleteEvent(evt) {
   evt.target.closest('.element').remove()
 };
 //Объявляем переменные для расширения картинки при клике
-const elementImageExpand = document.querySelector('.element__mask-group_expand');
+const elementImageExpand = document.querySelector('.popupimg__mask-group');
 const elementImageExpandText = document.querySelector('.popupimg__text');
 const popupImage = document.querySelector('.popupimg');
 
@@ -121,7 +121,7 @@ function massiveToCards(item) {
     elementImageExpand.src = item.link;
     elementImageExpandText.textContent = item.name;
   });
-
+  console.log(popupImage);
   elementsContainer.prepend(elementTemplate);
 }
 
@@ -135,7 +135,7 @@ render(initialCards);
 closeImagePopUp = function () {
   popupImage.classList.remove('popupimg_opened');
 };
-closeImage = document.querySelector('.popup__close-button_img')
+closeImage = document.querySelector('.popupimg__close-button');
 closeImage.addEventListener('click', closeImagePopUp);
 
 //Выбираем нужные инпуты через которые будем добавилять карточки
