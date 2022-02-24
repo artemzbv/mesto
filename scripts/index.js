@@ -2,7 +2,7 @@
 
 //Переменные попапа//
 const profilePopup = document.getElementById('popup-edit');
-const closeButton = profilePopup.querySelector('.popup__close-button');
+const closeProfileButton = profilePopup.querySelector('.popup__close-button');
 const editButton = document.querySelector('.profile__editbutton');
 
 //Переменные формы попапа//
@@ -24,13 +24,13 @@ function closePopup(popup) {
 };
 
 //Переключение для кнопок "добавить" и "редактировать"//
-editButton.addEventListener('click', function openProfilePopup() {
+editButton.addEventListener('click', function () {
   openPopup(profilePopup);
   nameInput.value = inputValueName.textContent;
   jobInput.value = inputValueJob.textContent;
 });
 
-closeButton.addEventListener('click', function closePopup() {
+closeProfileButton.addEventListener('click', function () {
   closePopup(profilePopup)
 });
 
@@ -48,18 +48,18 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 // выбираем нужные элементы в html файле
 const popupAdd = document.getElementById('popup-add');
-
+const closeAddButton = popupAdd.querySelector('.popup__close-button');
 //создаем кнопки открытия и закрытия нового попапа
 //кнопка "добавить"
 const addCardButton = document.querySelector('.profile__addbutton')
 
 //Привязываем слушатель к кнопке "добавить"
-addCardButton.addEventListener('click', function addCard() {
+addCardButton.addEventListener('click', function () {
   openPopup(popupAdd);
 });
 
 //привязываем слушатель к кнопке "закрыть"
-closeButton.addEventListener('click', function closeCard() {
+closeAddButton.addEventListener('click', function () {
   closePopup(popupAdd);
 });
 
@@ -164,6 +164,7 @@ function handleCardFormSubmit(evt) {
   //проведем объект через темплейт в секцию elements
   prependCard(object);
   //закроем карточку
+  closePopup(popupAdd);
   titleInput.value = ""
   refInput.value = ""
 };
