@@ -37,9 +37,12 @@
         <p class="footer__text">© 2020 Mesto Russia</p>
       </footer>
 
-      <div class="popup" id="popup-edit">
+      <div class="popup popup_opacity-low" id="popup-edit">
         <div class="popup__container">
-          <button class="popup__close-button" type="button"></button>
+          <button
+            class="popup__close-button popup__close-button_info"
+            type="button"
+          ></button>
           <form class="popup__form" name="addpopup">
             <h2 class="popup__title">Редактировать профиль</h2>
             <input
@@ -65,9 +68,12 @@
         </div>
       </div>
 
-      <div class="popup" id="popup-add">
+      <div class="popup popup_opacity-low" id="popup-add">
         <div class="popup__container">
-          <button class="popup__close-button" type="button"></button>
+          <button
+            class="popup__close-button popup__close-button_info"
+            type="button"
+          ></button>
           <form class="popup__form popup__form_image" name="place">
             <h2 class="popup__title popup__title_add">Новое место</h2>
             <input
@@ -95,11 +101,14 @@
       </div>
     </div>
 
-    <div class="popupimg">
-      <button class="popupimg__close-button" type="button"></button>
-      <div class="popupimg__container">
-        <img class="popupimg__mask-group" />
-        <h2 class="popupimg__text"></h2>
+    <div class="popup image-popup popup_opacity-high">
+      <button
+        class="popup__close-button popup__close-button_image"
+        type="button"
+      ></button>
+      <div class="image-popup__container">
+        <img class="image-popup__mask-group" />
+        <h2 class="image-popup__text"></h2>
       </div>
     </div>
 
