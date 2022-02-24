@@ -5,7 +5,7 @@
 }
 
 @media (max-width: 800px) {
-  .popupimg__close-button_image {
+  .popup__close-button_image {
     right: -110px;
     width: 20px;
     height: 20px;
