@@ -114,7 +114,7 @@ function createCard(item) {
   const cardImage = cardElement.querySelector('.element__mask-group');
   const cardTitle = cardElement.querySelector('.element__title');
   const cardLike = cardElement.querySelector('.element__like');
-  const CardElementDelete = cardElement.querySelector('.element__delete');
+  const cardElementDelete = cardElement.querySelector('.element__delete');
   cardImage.src = item.link;
   cardImage.alt = item.name;
   cardTitle.textContent = item.name;
@@ -126,7 +126,7 @@ function createCard(item) {
     elementImageExpandText.textContent = item.name;
   });
 
-  CardElementDelete.addEventListener('click', deleteCard);
+  cardElementDelete.addEventListener('click', deleteCard);
   cardLike.addEventListener('click', toggleLikes);
 
   return cardElement;
@@ -144,8 +144,8 @@ function render(items) {
 render(initialCards);
 
 //Объявляем функцию для закрытия картинки
-const closeImage = document.querySelector('.popup__close-button_image');
-closeImage.addEventListener('click', function closeImagePopup() {
+const closeImageButton = document.querySelector('.popup__close-button_image');
+closeImageButton.addEventListener('click', function closeImagePopup() {
   closePopup(popupImage);
 });
 //Выбираем нужные инпуты через которые будем добавилять карточки
