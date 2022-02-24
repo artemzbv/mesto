@@ -1,61 +1,67 @@
 //Практическая работа №4
+
 //Переменные попапа//
-const popupElement = document.getElementById('popup-edit');
-const closeButton = popupElement.querySelector('.popup__close-button');
+const profilePopup = document.getElementById('popup-edit');
+const closeButton = profilePopup.querySelector('.popup__close-button');
 const editButton = document.querySelector('.profile__editbutton');
 
 //Переменные формы попапа//
-const formElement = document.querySelector('.popup__form');
-const nameInput = formElement.querySelector('.popup__input_profile_name');
-const jobInput = formElement.querySelector('.popup__input_profile_job');
+const profileForm = document.querySelector('.popup__form');
+const nameInput = profileForm.querySelector('.popup__input_profile_name');
+const jobInput = profileForm.querySelector('.popup__input_profile_job');
 
 //Переменные профиля//
 const inputValueName = document.querySelector('.profile__title');
 const inputValueJob = document.querySelector('.profile__subtitle');
 
 //Функции переключения//
-openPopUp = function () {
-  popupElement.classList.add('popup_opened');
-  nameInput.value = inputValueName.textContent;
-  jobInput.value = inputValueJob.textContent;
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
 };
-closePopUp = function () {
-  popupElement.classList.remove('popup_opened');
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 };
 
 //Переключение для кнопок "добавить" и "редактировать"//
-editButton.addEventListener('click', openPopUp);
-closeButton.addEventListener('click', closePopUp);
+editButton.addEventListener('click', function openProfilePopup() {
+  openPopup(profilePopup);
+  nameInput.value = inputValueName.textContent;
+  jobInput.value = inputValueJob.textContent;
+});
+
+closeButton.addEventListener('click', function closePopup() {
+  closePopup(profilePopup)
+});
 
 //Функция перезаписи и сохранения изменений и отправки формы//
-function setPopUpName(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   inputValueName.textContent = nameInput.value;
   inputValueJob.textContent = jobInput.value;
-  closePopUp();
+  closePopup(profilePopup);
 };
 
-formElement.addEventListener('submit', setPopUpName);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 //Практическая работа №5
 
 // выбираем нужные элементы в html файле
 const popupAdd = document.getElementById('popup-add');
-const closeCardButton = popupAdd.querySelector('.popup__close-button');
 
-// создаем кнопки открытия и закрытия нового попапа
+//создаем кнопки открытия и закрытия нового попапа
 //кнопка "добавить"
-addCardButton = document.querySelector('.profile__addbutton')
-addCard = function () {
-  popupAdd.classList.add('popup_opened');
-};
-//кнопка "закрыть"
-closeCard = function () {
-  popupAdd.classList.remove('popup_opened');
-};
+const addCardButton = document.querySelector('.profile__addbutton')
 
-addCardButton.addEventListener('click', addCard);
-closeCardButton.addEventListener('click', closeCard);
+//Привязываем слушатель к кнопке "добавить"
+addCardButton.addEventListener('click', function addCard() {
+  openPopup(popupAdd);
+});
+
+//привязываем слушатель к кнопке "закрыть"
+closeButton.addEventListener('click', function closeCard() {
+  closePopup(popupAdd);
+});
 
 //Объявляем массив//
 const initialCards = [
@@ -90,61 +96,65 @@ const elementsTemplate = document.querySelector('#user').content;
 const elementsContainer = document.querySelector('.elements');
 
 //Создаем функцию для лайков
-function likeEvent(evt) {
+function toggleLikes(evt) {
   evt.target.classList.toggle('element__like_active');
 };
 //Создаем функцию для удаления карточек
-function deleteEvent(evt) {
+function deleteCard(evt) {
   evt.target.closest('.element').remove()
 };
 //Объявляем переменные для расширения картинки при клике
-const elementImageExpand = document.querySelector('.popupimg__mask-group');
-const elementImageExpandText = document.querySelector('.popupimg__text');
-const popupImage = document.querySelector('.popupimg');
-
+const popupImage = document.querySelector('.image-popup');
+const elementImageExpand = document.querySelector('.image-popup__mask-group');
+const elementImageExpandText = document.querySelector('.image-popup__text');
 //Объявляем функцию, которая переносит элементы из массива в контейнер:
 //массив -> template -> elements
-function massiveToCards(item) {
-  const elementTemplate = elementsTemplate.querySelector('.element').cloneNode(true);
-  let imageTemplate = elementTemplate.querySelector('.element__mask-group');
-  let titleTemplate = elementTemplate.querySelector('.element__title');
-  let like = elementTemplate.querySelector('.element__like');
-  let deleteImage = elementTemplate.querySelector('.element__delete');
-  imageTemplate.src = item.link;
-  titleTemplate.textContent = item.name;
-  item.alt = item.name;
-  deleteImage.addEventListener('click', deleteEvent);
-  like.addEventListener('click', likeEvent);
+function createCard(item) {
+  const cardElement = elementsTemplate.querySelector('.element').cloneNode(true);
+  const cardImage = cardElement.querySelector('.element__mask-group');
+  const cardTitle = cardElement.querySelector('.element__title');
+  const cardLike = cardElement.querySelector('.element__like');
+  const CardElementDelete = cardElement.querySelector('.element__delete');
+  cardImage.src = item.link;
+  cardImage.alt = item.name;
+  cardTitle.textContent = item.name;
 
-  imageTemplate.addEventListener('click', function () {
-    popupImage.classList.toggle('popupimg_opened');
+  cardImage.addEventListener('click', function () {
+    openPopup(popupImage);
     elementImageExpand.src = item.link;
+    elementImageExpand.alt = item.name;
     elementImageExpandText.textContent = item.name;
   });
-  console.log(popupImage);
-  elementsContainer.prepend(elementTemplate);
-}
+
+  CardElementDelete.addEventListener('click', deleteCard);
+  cardLike.addEventListener('click', toggleLikes);
+
+  return cardElement;
+};
+
+function prependCard(item) {
+  const cardElement = createCard(item)
+  elementsContainer.prepend(cardElement);
+};
 
 //объявляем функцию, которая перебирает элементы массива
-function render(item) {
-  item.forEach(massiveToCards);
+function render(items) {
+  items.forEach(prependCard);
 };
 render(initialCards);
 
 //Объявляем функцию для закрытия картинки
-closeImagePopUp = function () {
-  popupImage.classList.remove('popupimg_opened');
-};
-closeImage = document.querySelector('.popupimg__close-button');
-closeImage.addEventListener('click', closeImagePopUp);
-
+const closeImage = document.querySelector('.popup__close-button_image');
+closeImage.addEventListener('click', function closeImagePopup() {
+  closePopup(popupImage);
+});
 //Выбираем нужные инпуты через которые будем добавилять карточки
 const formImageElement = document.querySelector('.popup__form_image');
 const titleInput = formImageElement.querySelector('.popup__input_profile_title');
 const refInput = formImageElement.querySelector('.popup__input_profile_ref');
 
 //Создаем функцию сохранения инпутов в новую карточку(объект) массива 
-function setPopUpImage(evt) {
+function handleCardFormSubmit(evt) {
   evt.preventDefault();
   //создаем объект для массива, в котором инпуты появятся в попапе 
   const object = {
@@ -152,9 +162,10 @@ function setPopUpImage(evt) {
     link: refInput.value,
   };
   //проведем объект через темплейт в секцию elements
-  massiveToCards(object);
+  prependCard(object);
   //закроем карточку
-  closeCard();
+  titleInput.value = ""
+  refInput.value = ""
 };
-formImageElement.addEventListener('submit', setPopUpImage);
+formImageElement.addEventListener('submit', handleCardFormSubmit);
 
